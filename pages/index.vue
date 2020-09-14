@@ -4,6 +4,7 @@
       <Logo />
       <button v-if="this.$auth.loggedIn" @click="logout">Logout</button>
       <button v-if="this.$auth.loggedIn" @click="test">Test</button>
+      <button v-if="this.$auth.loggedIn" @click="admin">Admin</button>
       <h1 class="title">authtestfrontend</h1>
       <div class="links">
         <a
@@ -26,20 +27,22 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 
 export default Vue.extend({
   methods: {
     async logout() {
-      console.log("logout");
       await this.$auth.logout();
     },
     async test() {
-      console.log(this.$auth.user);
-      const res = await this.$axios.$get("/users/test");
+      const res: any = await this.$axios.$get('/users/test');
       console.log(res);
-    }
-  }
+    },
+    async admin() {
+      const res: any = await this.$axios.$get('/users');
+      console.log(res);
+    },
+  },
 });
 </script>
 
@@ -54,8 +57,8 @@ export default Vue.extend({
 }
 
 .title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;

@@ -16,31 +16,31 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
   data() {
     return {
       login: {
-        username: "test",
-        password: "1234",
+        username: 'test',
+        password: '1234',
       },
     };
   },
   methods: {
     async userLogin() {
       try {
-        console.log(this.login);
-        let response = await this.$auth.loginWith("local", {
+        const response: any = await this.$auth.loginWith('local', {
           data: this.login,
         });
         console.log(response);
 
-        this.$router.push({ path: "/" });
+        this.$router.push({ path: '/' });
       } catch (err) {
-        console.log("hej");
         console.log(err);
       }
     },
   },
-};
+});
 </script>
