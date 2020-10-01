@@ -3,28 +3,28 @@ export default {
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
    */
-  mode: "spa",
+  mode: 'spa',
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
    */
-  target: "server",
+  target: 'server',
   /*
    ** Headers of the page
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    title: process.env.npm_package_name || "",
+    title: process.env.npm_package_name || '',
     meta: [
-      { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
-        hid: "description",
-        name: "description",
-        content: process.env.npm_package_description || ""
-      }
+        hid: 'description',
+        name: 'description',
+        content: process.env.npm_package_description || '',
+      },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   /*
    ** Global CSS
@@ -43,21 +43,21 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ["@nuxt/typescript-build"],
+  buildModules: ['@nuxt/typescript-build'],
   /*
    ** Nuxt.js modules
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    "@nuxtjs/axios",
-    "@nuxtjs/auth-next"
+    '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: "http://localhost:5000"
+    baseURL: 'http://localhost:5000',
   },
   /*
    ** Build configuration
@@ -67,34 +67,34 @@ export default {
   auth: {
     strategies: {
       local: {
-        scheme: "refresh",
+        scheme: 'refresh',
         token: {
-          property: "jwtToken"
+          property: 'jwtToken',
         },
         refreshToken: {
-          property: "refreshToken",
-          data: "refreshToken"
+          property: 'refreshToken',
+          data: 'refreshToken',
         },
         user: {
           property: false,
-          autoFetch: true
+          autoFetch: true,
         },
         endpoints: {
-          login: { url: "/auth/login", method: "post" },
-          refresh: { url: "/auth/refresh-token", method: "post" },
-          user: { url: "users/user", method: "get" },
-          logout: false
-        }
+          login: { url: '/auth/login', method: 'post' },
+          refresh: { url: '/auth/refresh-token', method: 'post' },
+          user: { url: 'users/user', method: 'get' },
+          logout: { url: '/auth/logout', method: 'post' },
+        },
         // autoLogout: false
-      }
+      },
     },
     redirect: {
-      login: "/login",
-      logout: "/login",
-      home: false
-    }
+      login: '/login',
+      logout: '/login',
+      home: false,
+    },
   },
   router: {
-    middleware: ["auth"]
-  }
+    middleware: ['auth'],
+  },
 };
