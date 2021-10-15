@@ -1,3 +1,5 @@
+Trying out Nuxt.js
+
 # nuxt-ts-app
 
 ## Build Setup
